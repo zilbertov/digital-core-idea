@@ -12,7 +12,7 @@ export function Progress({
   return (
     <div className={cn("h-2 overflow-hidden rounded-full bg-slate-100", className)}>
       <div
-        className={cn("h-full rounded-full bg-teal-600 transition-all", indicatorClassName)}
+        className={cn("h-full rounded-full bg-[#5b4bdb] transition-all", indicatorClassName)}
         style={{ width: `${Math.max(0, Math.min(100, value))}%` }}
       />
     </div>

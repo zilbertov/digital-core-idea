@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f8fb;
-  --foreground: #1f2937;
+  --background: #f6f7fb;
+  --foreground: #172033;
   --card: #ffffff;
-  --card-foreground: #1f2937;
-  --muted: #eef2f7;
-  --muted-foreground: #64748b;
-  --border: #d8dee8;
-  --accent: #0f766e;
-  --accent-soft: #e6f4f1;
+  --card-foreground: #172033;
+  --muted: #eef1f8;
+  --muted-foreground: #667085;
+  --border: #dce2ee;
+  --accent: #5b4bdb;
+  --accent-soft: #efedff;
+  --blue: #2563eb;
+  --orange: #e36f2c;
+  --ink: #172033;
 }
 
 * {
@@ -23,8 +26,12 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(15, 118, 110, 0.08), transparent 34rem),
-    linear-gradient(180deg, #fbfcfd 0%, var(--background) 48%, #f1f5f9 100%);
+    linear-gradient(90deg, rgba(91, 75, 219, 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 8% 4%, rgba(91, 75, 219, 0.16), transparent 28rem),
+    radial-gradient(circle at 92% 12%, rgba(227, 111, 44, 0.1), transparent 22rem),
+    linear-gradient(180deg, #ffffff 0%, var(--background) 42%, #f0f3fa 100%);
+  background-size: 28px 28px, 28px 28px, auto, auto, auto;
   color: var(--foreground);
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -54,7 +61,7 @@ a {
 }
 
 .fade-in {
-  animation: fade-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fade-in 620ms cubic-bezier(0.32, 0.72, 0, 1) both;
 }
 
 @keyframes fade-in {
@@ -66,4 +73,20 @@ a {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.editorial-shell {
+  position: relative;
+}
+
+.editorial-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image:
+    linear-gradient(120deg, #172033 0.5px, transparent 0.5px),
+    linear-gradient(0deg, #172033 0.5px, transparent 0.5px);
+  background-size: 5px 5px;
 }
