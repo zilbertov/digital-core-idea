@@ -188,7 +188,7 @@ export function DigitalCoreApp() {
         </header>
 
         <nav className="relative z-[2] mb-6 rounded-[1.2rem] border border-[#dfe4f0] bg-white p-2 shadow-[0_18px_50px_-44px_rgba(23,32,51,0.65)]">
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               type="button"
               className="flex h-11 w-full cursor-pointer items-center justify-between rounded-xl border border-[#dfe4f0] bg-white px-3 text-left text-sm font-medium text-[#34405a] transition-colors active:scale-[0.99]"
@@ -240,7 +240,7 @@ export function DigitalCoreApp() {
             )}
           </div>
 
-          <div className="soft-scrollbar hidden gap-2 overflow-x-auto md:flex">
+          <div className="soft-scrollbar hidden gap-2 overflow-x-auto lg:flex">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               const active = activeTab === tab.id;
@@ -286,7 +286,7 @@ function ExecutiveDashboard() {
     <section>
       <SectionHeader
         eyebrow="Executive live dashboard"
-        title="CEO видит live-картину без ручных пятничных отчетов"
+        title="Live-dashboard"
         description="Объекты, бюджеты, договоры, заявки арендаторов, документы и риски сведены в управленческий контур."
       />
       <div className="mb-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 2xl:grid-cols-9">
@@ -416,7 +416,7 @@ function ObjectPassport() {
     <section>
       <SectionHeader
         eyebrow="Object passport"
-        title="Glass Tower III как единая цифровая сущность"
+        title="Паспорт объекта"
         description="Паспорт объекта связывает участок, BIM, сметы, договоры, акты, платежи, помещения, арендаторов, сервис и юридические события."
       />
       <Card className="mb-5 overflow-hidden">
@@ -519,7 +519,7 @@ function E2EProcesses() {
     <section>
       <SectionHeader
         eyebrow="E2E processes"
-        title="Сквозные цепочки вместо островных систем"
+        title="Сквозные процессы"
         description="Каждая цепочка показывает путь данных через системы-источники, Digital Core и управленческий результат без ручного копирования."
       />
       <div className="space-y-4">
@@ -568,7 +568,7 @@ function RelationsIntegrations() {
     <section>
       <SectionHeader
         eyebrow="Relations / integrations"
-        title="Digital Core связывает существующие системы, а не заменяет их"
+        title="Связи / Интеграции"
         description="Схема показывает, какие данные системы отдают и получают, статус интеграции, последний sync и качество данных."
       />
       <Card className="mb-5">
@@ -627,7 +627,7 @@ function PremisesScreen() {
     <section>
       <SectionHeader
         eyebrow="Premises"
-        title="Продажи видят актуальное состояние помещений"
+        title="Помещения"
         description="Помещения синхронизированы с BIM, CRM, CLM и паспортом объекта, поэтому команда не работает по старым PDF или Excel."
       />
       <Card className="mb-5 border-[#ffd8bd] bg-[#fff7f1]">
@@ -650,7 +650,7 @@ function DocumentsScreen() {
     <section>
       <SectionHeader
         eyebrow="Documents"
-        title="Документы и версии вместо сетевой папки"
+        title="Документы"
         description="Контролируемый документный контур показывает актуальность, владельца, связанную сущность, процесс и предупреждение."
       />
       <DataTable
@@ -749,7 +749,7 @@ function ActivityRisks() {
     <section>
       <SectionHeader
         eyebrow="Activity / risks"
-        title="События и риски связаны с объектом и процессами"
+        title="Активность / Риски"
         description="Timeline фиксирует изменения из систем-источников, а risk panel показывает приоритеты для CEO и директоров."
       />
       <div className="grid gap-5 xl:grid-cols-[0.9fr_1.1fr]">

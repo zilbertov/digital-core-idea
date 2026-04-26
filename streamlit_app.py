@@ -397,20 +397,27 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-tabs = st.tabs([
+section_options = [
     "Дашборд руководства",
     "Паспорт объекта",
     "Сквозные процессы",
     "Связи / Интеграции",
-    "Помещения",
     "Документы",
+    "Помещения",
     "Активность / Риски",
-])
+]
 
-with tabs[0]:
+selected_section = st.selectbox(
+    "Раздел",
+    section_options,
+    index=0,
+    key="section_nav",
+)
+
+if selected_section == "Дашборд руководства":
     section_title(
         "Executive live dashboard",
-        "CEO видит live-картину без ручных пятничных отчетов",
+        "Live-dashboard",
         "Объекты, бюджеты, договоры, заявки арендаторов, документы и риски сведены в управленческий контур.",
     )
     for row_start in range(0, len(dashboard_kpis), 3):
@@ -434,10 +441,10 @@ with tabs[0]:
         with col:
             st.markdown(f"<div class='card soft'><b>{title}</b><br><br>{badge(source, tone)}</div>", unsafe_allow_html=True)
 
-with tabs[1]:
+elif selected_section == "Паспорт объекта":
     section_title(
         "Object passport",
-        "Glass Tower III как единая цифровая сущность",
+        "Паспорт объекта",
         "Один объект — единая цифровая сущность, к которой привязаны все данные.",
     )
     st.markdown(
@@ -484,10 +491,10 @@ with tabs[1]:
         for item in hub_entities[7:]:
             st.markdown(f"<div class='node'>{item}</div>", unsafe_allow_html=True)
 
-with tabs[2]:
+elif selected_section == "Сквозные процессы":
     section_title(
         "E2E processes",
-        "Сквозные цепочки вместо островных систем",
+        "Сквозные процессы",
         "Данные проходят через процесс без ручного копирования между системами.",
     )
     for name, status, owner, steps_raw, removed in processes:
@@ -509,10 +516,10 @@ with tabs[2]:
             unsafe_allow_html=True,
         )
 
-with tabs[3]:
+elif selected_section == "Связи / Интеграции":
     section_title(
         "Relations / integrations",
-        "Digital Core связывает существующие системы, а не заменяет их",
+        "Связи / Интеграции",
         "Показано, какие данные системы отдают и получают, статус интеграции, последний sync и качество данных.",
     )
     st.markdown(
@@ -530,10 +537,10 @@ with tabs[3]:
         hide_index=True,
     )
 
-with tabs[4]:
+elif selected_section == "Помещения":
     section_title(
         "Premises",
-        "Продажи видят актуальное состояние помещений",
+        "Помещения",
         "Помещения синхронизированы с BIM, CRM, CLM и паспортом объекта.",
     )
     st.markdown(f"<div class='card' style='background:#fff7f1; border-color:#ffd8bd;'>{badge('Floor 12: BIM version updated -> sales data synced', 'warn')}</div>", unsafe_allow_html=True)
@@ -543,10 +550,10 @@ with tabs[4]:
         hide_index=True,
     )
 
-with tabs[5]:
+elif selected_section == "Документы":
     section_title(
         "Documents",
-        "Документы и версии вместо сетевой папки",
+        "Документы",
         "Документный контур показывает актуальность, владельца, связанную сущность, процесс и предупреждение.",
     )
     st.dataframe(
@@ -555,10 +562,10 @@ with tabs[5]:
         hide_index=True,
     )
 
-with tabs[6]:
+elif selected_section == "Активность / Риски":
     section_title(
         "Activity / risks",
-        "События и риски связаны с объектом и процессами",
+        "Активность / Риски",
         "Timeline фиксирует изменения из систем-источников, а risk panel показывает приоритеты.",
     )
     left, right = st.columns([0.9, 1.1])
