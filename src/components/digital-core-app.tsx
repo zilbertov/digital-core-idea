@@ -187,13 +187,21 @@ export function DigitalCoreApp() {
           </div>
         </header>
 
-        <nav className="mb-6 rounded-[1.2rem] border border-[#dfe4f0] bg-white p-2 shadow-[0_18px_50px_-44px_rgba(23,32,51,0.65)]">
+        <nav className="relative z-[2] mb-6 rounded-[1.2rem] border border-[#dfe4f0] bg-white p-2 shadow-[0_18px_50px_-44px_rgba(23,32,51,0.65)]">
           <div className="md:hidden">
-            <Button
+            <button
               type="button"
-              variant="outline"
-              className="h-11 w-full justify-between rounded-xl px-3"
-              onClick={() => setMobileNavOpen((open) => !open)}
+              className="flex h-11 w-full cursor-pointer items-center justify-between rounded-xl border border-[#dfe4f0] bg-white px-3 text-left text-sm font-medium text-[#34405a] transition-colors active:scale-[0.99]"
+              onPointerDown={(event) => {
+                event.preventDefault();
+                setMobileNavOpen((open) => !open);
+              }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setMobileNavOpen((open) => !open);
+                }
+              }}
               aria-expanded={mobileNavOpen}
               aria-controls="mobile-section-nav"
             >
@@ -202,7 +210,7 @@ export function DigitalCoreApp() {
                 <span className="truncate">{activeLabel}</span>
               </span>
               <ChevronDown className={cn("h-4 w-4 shrink-0 transition-transform", mobileNavOpen && "rotate-180")} />
-            </Button>
+            </button>
 
             {mobileNavOpen && (
               <div id="mobile-section-nav" className="mt-2 grid gap-1">
@@ -214,10 +222,11 @@ export function DigitalCoreApp() {
                       key={tab.id}
                       type="button"
                       className={cn(
-                        "flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm font-medium transition-colors active:translate-y-px",
+                        "flex w-full cursor-pointer items-center gap-3 rounded-xl px-3 py-3 text-left text-sm font-medium transition-colors active:translate-y-px",
                         active ? "bg-[#172033] text-white" : "text-[#34405a] hover:bg-[#f2f4fa]",
                       )}
-                      onClick={() => {
+                      onPointerDown={(event) => {
+                        event.preventDefault();
                         setActiveTab(tab.id);
                         setMobileNavOpen(false);
                       }}
